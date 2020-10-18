@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MessagingService.Data\MessagingService.Data.csproj" />
+      <ProjectReference Include="..\MessagingService.Entity\MessagingService.Entity.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Base" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,37 @@
+version: "3"
+services:
+  db:
+    image: mongo:latest
+    container_name: ms-db
+    hostname: ms-db
+    networks:
+      - msnet
+  api:
+    build: .
+    container_name: ms-api
+    hostname: ms-api
+    env_file:
+      - ms.env
+    ports:
+      - 4455:80
+    networks:
+      - msnet
+    depends_on:
+      - db
+    restart: always
+  loadbalancer:
+    image: nginx:latest
+    container_name: ms-loadbalancer
+    hostname: ms-loadbalancer
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - msnet
+    depends_on:
+      - api
+networks:
+  msnet:
+    driver: bridge
