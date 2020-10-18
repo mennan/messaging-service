@@ -1,5 +1,7 @@
 # Messaging Service API
 
+[![Actions Status](https://github.com/mennan/messaging-service/workflows/Test/badge.svg)](https://github.com/mennan/messaging-service/actions)
+
 ## Used Technologies
 
 - .NET Core 3.1
